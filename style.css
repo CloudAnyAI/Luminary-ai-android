@@ -1,0 +1,232 @@
+.jump-up {
+            animation: jumpUp 0.4s ease-out forwards;
+        }
+
+        @keyframes jumpUp {
+            from {
+                transform: translateY(100%);
+            }
+        }
+
+        function hideGenerateButton() {
+            const isLoggedIn = JSON.parse(localStorage.getItem('isLoggedIn'));
+            if (isLoggedIn && isLoggedIn.username === 'testuser') {
+                const usageKey = `usage_${isLoggedIn.username}_${new Date().toISOString().split('T')[0]}`;
+                let storedUsageDate = localStorage.getItem('usageDate');
+                let usageCount = 0;
+
+                if (storedUsageDate !== new Date().toISOString().split('T')[0]) {
+                    localStorage.setItem("usageDate", new Date().toISOString().split('T')[0]);
+                    localStorage.setItem(usageKey, 0);
+                } else {
+                    usageCount = parseInt(localStorage.getItem(usageKey)) || 0;
+                }
+
+                if (usageCount >= 3) {
+                    // Hide the Generate Image button and reload the page
+                    const generateButtons = document.querySelectorAll('button[data-role="generate-button"]');
+                    generateButtons.forEach(button => button.style.display = 'none');
+                    location.reload(); 
+                }
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+
+
+                                            .messageBox {
+  width: fit-content;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(12px);
+  padding: 0 15px;
+  border-radius: 10px;
+  border: 1px solid rgb(63, 63, 63);
+}
+.messageBox:focus-within {
+  border: 1px solid rgb(110, 110, 110);
+}
+.fileUploadWrapper {
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#file {
+  display: none;
+}
+.fileUploadWrapper label {
+  cursor: pointer;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.fileUploadWrapper label svg {
+  height: 18px;
+}
+.fileUploadWrapper label svg path {
+  transition: all 0.3s;
+}
+.fileUploadWrapper label svg circle {
+  transition: all 0.3s;
+}
+.fileUploadWrapper label:hover svg path {
+  stroke: #fff;
+}
+.fileUploadWrapper label:hover svg circle {
+  stroke: #fff;
+  fill: #3c3c3c;
+}
+.fileUploadWrapper label:hover .tooltip {
+  display: block;
+  opacity: 1;
+}
+.tooltip {
+  position: absolute;
+  top: -40px;
+  display: none;
+  opacity: 0;
+  color: white;
+  font-size: 10px;
+  text-wrap: nowrap;
+  background-color: #000;
+  padding: 6px 10px;
+  border: 1px solid #3c3c3c;
+  border-radius: 5px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.596);
+  transition: all 0.3s;
+}
+#messageInput {
+  width: 200px;
+  height: 100%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding-left: 10px;
+  color: white;
+}
+#messageInput:focus ~ #sendButton svg path,
+#messageInput:valid ~ #sendButton svg path {
+  fill: #3c3c3c;
+  stroke: white;
+}
+
+#sendButton {
+  width: fit-content;
+  height: 100%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+#sendButton svg {
+  height: 18px;
+  transition: all 0.3s;
+}
+#sendButton svg path {
+  transition: all 0.3s;
+}
+#sendButton:hover svg path {
+  fill: #3c3c3c;
+  stroke: white;
+}
+
+          /* Style for desktop */
+        @media (min-width: 768px) {
+            .sizeauto {
+              background-color: #f1f1f1;
+                height: 100px;
+              width: 100%;
+              border-radius: 10px;
+              display: flex;
+              justify-content:center;
+          items-align: center;
+              bottom:0px;
+              width: 100%;
+            }
+        }
+
+        /* Style for mobile */
+        @media (max-width: 767px) {
+            .sizeauto {
+              background-color: #00000000;
+                height: 70px;
+              
+              bottom: 0px;
+              width: 100%;
+            }
+        }
+
+
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF9E;
+    backdrop-filter: blur(30px);
+    z-index: 1000;
+    transition: opacity 1s ease-out;
+    flex-direction: column;
+    
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+  }
+
+.hidden {
+    display: none;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+
+          .spinnersph {
+  width: 3em;
+  height: 3em;
+            margin-top: 62px;
+  cursor: not-allowed;
+  border-radius: 50%;
+  border: 2px solid #444;
+  box-shadow: -10px -10px 10px #6359f8, 0px -10px 10px 0px #9c32e2, 10px -10px 10px #f36896, 10px 0 10px #ff0b0b, 10px 10px 10px 0px#ff5500, 0 10px 10px 0px #ff9500, -10px 10px 10px 0px #ffb700;
+  animation: rot55 0.7s linear infinite;
+}
+
+.spinnerin {
+  border: 2px solid #444;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes rot55 {
+  to {
+    transform: rotate(360deg);
+  }
+}

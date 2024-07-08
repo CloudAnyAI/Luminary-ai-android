@@ -1,0 +1,612 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnyAI - Danh Trình</title>
+    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.3/dist/tailwind.min.css"></script>
+    <link rel="icon" type="image/x-icon" href="favicon.jpg">
+    <meta name="description" content="Sản phẩm do Danh Trình tạo ra, thuộc Việt Nam">
+    <meta name="keywords" content="ai, anyai, tool, vietnam, danh trình, chiêm thành tấn, any">
+
+    <meta property="og:url" content="https://anyai.netlify.app">
+    <meta property="og:title" content="AnyAI by Danh Trình - AnyAI.Netlify.App">
+    <meta property="og:description" content="Sản phẩm do Danh Trình tạo ra, thuộc Việt Nam">
+    <meta property="og:image" content="favicon.jpg">
+<!-- TrustBox script -->
+<script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+<!-- End TrustBox script -->
+    <link rel='manifest' href='/manifest.json'>
+    <meta name='mobile-web-app-capable' content='yes'>
+    <meta name='apple-mobile-web-app-capable' content='yes'>
+    <meta name='application-name' content='AnyAI+'><meta name='apple-mobile-web-app-title' content='AnyAI+'>
+    <meta name='msapplication-starturl' content='/'>
+    <!-- stylesheet -->
+  
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css"
+    />
+    <!-- script -->
+    <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/script-name.js"></script>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;1,800&display=swap"
+      rel="stylesheet"
+    />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+    <style>
+      body {
+        font-family: Rubik;
+      }
+      /*css for color*/
+      .bg-[#000000e5] {
+        background-color: #000000e5;
+      }
+      .backdrop-blur {
+        backdrop-filter: blur(8px);
+        background-color: #ffffff89;
+      }
+      .wih {
+        width: 400px;
+        border-radius: 16px;
+      }
+      
+      .pdg {
+        margin-bottom: 90px;
+      }
+    </style>
+    <script src="data.js">
+    </script>
+</head>
+<body class="bg-white text-gray-800">
+
+        <style>
+
+        
+    </style>
+</head>
+<body class=" text-gray-800" onload="checkLogin()">
+      <div id="splash-screen">
+        <img src="https://i.imgur.com/t5FVXVJ.png" alt="Logo" class="logo">
+        <div class="spinnersph">
+    <div class="spinnerin"></div>
+</div>
+    </div>
+  <script>
+   document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function() {
+        var splashScreen = document.getElementById('splash-screen');
+        splashScreen.classList.add('fade-out');
+
+        splashScreen.addEventListener('transitionend', function() {
+            splashScreen.style.display = 'none';
+            document.getElementById('main-content').classList.remove('hidden');
+        });
+    }, 7000);
+});
+
+  </script>
+
+  <div data-dialog-backdrop="dialog-xlll" data-dialog-backdrop-close="true"
+      class="pointer-events-none fixed  z-50 grid h-screen w-screen place-items-center bg-white bg-opacity-10 opacity-0 backdrop-blur-sm transition-opacity duration-300">
+      <div data-dialog="dialog-xlll"
+        style="width: 350px;" class="relative m-4  min-w-[75%] max-w-[75%] rounded-2xl bg-white font-sans text-base font-light leading-relaxed text-blue-gray-500 antialiased shadow-2xl">
+        <div 
+          class="flex items-center gap-10 p-4 font-sans text-2xl antialiased font-semibold leading-snug shrink-0 text-blue-gray-900">
+          Tạo hình ảnh AnyAI Im.4
+        
+        <button data-ripple-dark="true" data-dialog-close="true"
+            class=" mr-1 font-sans text-xs font-bold text-red-500 uppercase transition-all rounded-lg middle none center hover:bg-red-500/10 active:bg-red-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+            Cancel
+          </button>
+          </div>
+        <div class="relative p-4 font-sans text-base antialiased font-light leading-relaxed border-t border-b border-t-blue-gray-100 border-b-blue-gray-100 text-blue-gray-500">
+       <h2 class="text-xl font-bold mb-4">AI Photo Generator</h2>
+            <form id="image-generator-form" class="space-y-4">
+                <div>
+               <label for="prompt" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Email</label>
+                    <div class="relative mb-6">
+                      <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
+                          <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
+                          <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
+                        </svg>
+                      </div>
+                      <input type="text" id="prompt" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com">
+                    </div>
+                </div>
+                <div id="error-message" class="text-red-500 hidden"></div>
+                <button 
+    class="flex justify-center items-center mx-auto select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-3xl bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+    type="submit"
+    data-ripple-light="true"
+    >
+    Generator</button>
+            </form>
+            <img id="spinner" src="https://i.imgur.com/UQ1VMWI.gif" class="hidden mt-4  w-12 h-12 pointer-events-none"></div>
+            <div id="generated-image" class="mt-4 rounded-2xl"></div>
+            <!-- Fullscreen View Modal -->
+            <div id="fullscreen-modal" class="fixed w-full h-full inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center hidden z-[9999]">
+              <div class="relative bg-black rounded-lg">
+                <img id="fullscreen-img" src="" alt="Full Screen Image" class="w-full h-auto">
+                <a id="download-btn" class="absolute bottom-4 right-4 bg-blue-500 text-white px-4 py-2 rounded-md">Download</a>
+                <button onclick="closeFullscreenModal()" class="absolute top-4 right-4 text-white bg-red-500 p-2 rounded-full">X</button>
+              </div>
+            </div>
+        </div>
+        
+          
+        </div>
+      </div>
+    </div>
+  <!--modal tool chat-->
+    <div data-dialog-backdrop="dialog-xl" data-dialog-backdrop-close="true"
+      class="pointer-events-none fixed  z-50 grid h-screen w-screen place-items-center bg-black bg-opacity-60 opacity-0 backdrop-blur-sm transition-opacity duration-300">
+      <div data-dialog="dialog-xl"
+        class="relative m-4 w-3/4 min-w-[75%] max-w-[75%] rounded-lg bg-white font-sans text-base font-light leading-relaxed text-blue-gray-500 antialiased shadow-2xl">
+        <div
+          class="flex items-center p-4 font-sans text-2xl antialiased font-semibold leading-snug shrink-0 text-blue-gray-900">
+          Its a simple dialog.
+        </div>
+        <div class="px-4 w-full flex-grow flex flex-col">
+      
+      <div id="chatbox" class="flex flex-col items-start bg-white max-h-96 p-4 rounded-lg overflow-y-auto flex-grow mb-2"></div>
+     <div class="messageBox fixed z-50 bottom-2 mx-auto block">
+  <div class="fileUploadWrapper">
+    <label for="file">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 337 337">
+        <circle
+          stroke-width="20"
+          stroke="#6c6c6c"
+          fill="none"
+          r="158.5"
+          cy="168.5"
+          cx="168.5"
+        ></circle>
+        <path
+          stroke-linecap="round"
+          stroke-width="25"
+          stroke="#6c6c6c"
+          d="M167.759 79V259"
+        ></path>
+        <path
+          stroke-linecap="round"
+          stroke-width="25"
+          stroke="#6c6c6c"
+          d="M79 167.138H259"
+        ></path>
+      </svg>
+      <span class="tooltip">Add an image</span>
+    </label>
+    <input type="file" id="file" name="file" />
+  </div>
+  <input required="" placeholder="Message..." type="text" id="messageInput" />
+  <button id="sendButton">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 664 663">
+      <path
+        fill="none"
+        d="M646.293 331.888L17.7538 17.6187L155.245 331.888M646.293 331.888L17.753 646.157L155.245 331.888M646.293 331.888L318.735 330.228L155.245 331.888"
+      ></path>
+      <path
+        stroke-linejoin="round"
+        stroke-linecap="round"
+        stroke-width="33.67"
+        stroke="#6c6c6c"
+        d="M646.293 331.888L17.7538 17.6187L155.245 331.888M646.293 331.888L17.753 646.157L155.245 331.888M646.293 331.888L318.735 330.228L155.245 331.888"
+      ></path>
+    </svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+        <div class="flex flex-wrap items-center justify-end p-4 shrink-0 text-blue-gray-500">
+          <button data-ripple-dark="true" data-dialog-close="true"
+            class="px-6 py-3 mr-1 font-sans text-xs font-bold text-red-500 uppercase transition-all rounded-3xl middle none center hover:bg-red-500/10 active:bg-red-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+            Cancel
+          </button>
+          <button data-ripple-light="true" data-dialog-close="true"
+            class="middle none center rounded-lg bg-gradient-to-tr from-green-600 to-green-400 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+            Confirm
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Login Modal -->
+    <div id="login-modal" class="fixed inset-0 flex items-center justify-center backdrop-blur   z-50" style="background-color: #00000087;">
+        <div class="bg-white p-6 rounded-3xl shadow-lg mr-6 ml-6">
+          
+      <div class="flex flex-col gap-4 p-6 flex justify-center items-center">
+    <img src="https://i.imgur.com/ecw9dix.png" style=" width: 140px;pointer-events: none;">
+        <h4
+          class="block text-center font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+          Đăng nhập sử dụng</h4><span class="text-blue-500 text-2xl font-black">Luminary AI
+        </span>
+        
+        <h6
+          class="block -mb-2 font-sans text-base antialiased font-semibold leading-relaxed tracking-normal text-inherit">
+          Email của bạn
+        </h6>
+        <div class="relative h-11 w-full min-w-[200px]">
+          <input id="username"
+            class="w-full h-full px-3 py-3 font-sans text-sm font-normal transition-all bg-transparent border rounded-2xl peer border-blue-gray-200  text-blue-gray-700 outline outline-0 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+            placeholder="Tên đăng nhập của bạn..." />
+          
+        </div>
+        <h6
+          class="block -mb-2 font-sans text-base antialiased font-semibold leading-relaxed tracking-normal text-inherit">
+          Mật khẩu của bạn
+        </h6>
+        <div class="relative h-11 w-full min-w-[200px]">
+          <input id="password"
+            class="w-full h-full px-3 py-3 font-sans text-sm font-normal transition-all bg-transparent border rounded-2xl peer border-blue-gray-200  text-blue-gray-700 outline outline-0 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+            placeholder="Mật khẩu của bạn..." />
+          
+        </div>
+        <div class="-ml-2.5 -mt-3">
+          <div class="inline-flex items-center">
+            <label class="relative flex items-center p-3 rounded-full cursor-pointer" htmlFor="remember">
+              
+          </div>
+        </div>
+      </div>
+      <div class="p-6 pt-0">
+        <button onclick="validateLogin()"
+    class="flex justify-center items-center mx-auto select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-3xl bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+    type="button"
+    data-ripple-light="true"
+    >
+    Đăng nhập</button>
+        <p class="flex justify-center mt-4 font-sans text-sm antialiased font-light leading-normal text-inherit">
+          Don&apos;t have an account?
+          <a href="danhtrinh.ofc@gmail.com"
+            class="block ml-1 font-sans text-sm antialiased font-bold leading-normal text-blue-gray-900">
+            Đăng ký Demo
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+   
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full  z-30 backdrop-blur shadow-2xl shadow-red flex justify-between items-center">
+        <img src="https://i.imgur.com/ecw9dix.png" style="margin-left: 12px; width: 140px;pointer-events: none;">
+        <button style="margin-right: 12px;"
+    class="relative h-10 max-h-[40px] w-10 max-w-[40px] select-none rounded-lg text-center align-middle font-sans text-xs font-medium uppercase text-gray-900 transition-all hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+    data-ripple-dark="true" data-popover-target="notifications-menu">
+   <i class="fa-solid fa-gear fa-spin fa-2xl"></i>
+  </button>
+  <ul role="menu" data-popover="notifications-menu" data-popover-placement="bottom"
+    class="absolute z-10 flex min-w-[180px] flex-col gap-2 overflow-auto rounded-md border border-blue-gray-50 bg-white p-3 font-sans text-sm font-normal text-blue-gray-500 shadow-lg shadow-blue-gray-500/10 focus:outline-none">
+    <button onclick="logout()" role="menuitem"
+      class="flex items-center w-full gap-4 px-3 py-2 pl-2 pr-8 leading-tight transition-all rounded-md outline-none cursor-pointer select-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900">
+      Đăng xuất
+    </button>
+    <button onclick="deleteCookies()" role="menuitem"
+      class="flex items-center w-full gap-4 px-3 py-2 pl-2 pr-8 leading-tight transition-all rounded-md outline-none cursor-pointer select-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900">
+      Cookie Clear
+      </button>
+  </ul> 
+    </nav>
+
+    <!-- Landing Pages -->
+    <div id="page1" class="h-screen pt-3">
+
+
+<section class="w-full px-8 text-gray-700 ">
+    <div class="container flex flex-col flex-wrap items-center justify-between  mx-auto md:flex-row max-w-7xl">
+        
+</section>
+
+<!-- Section 2 -->
+<section class="px-2 py-32 bg-white md:px-0">
+  <div class="container items-center max-w-6xl px-8 mx-auto xl:px-5">
+    <div class="flex flex-wrap items-center sm:-mx-3">
+      <div class="w-full md:w-1/2 md:px-3">
+        <div class="w-full pb-6 space-y-6 sm:max-w-md lg:max-w-lg md:space-y-4 lg:space-y-8 xl:space-y-9 sm:pr-5 lg:pr-0 md:pb-0">
+          <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl">
+            <span class="block xl:inline">Luminary AI</span>
+            <span class="block text-indigo-600 xl:inline">Sản phẩm bởi LIC Inc - Creative Danh Trình</span>
+          </h1>
+          <p class="mx-auto text-base text-gray-500 sm:max-w-md lg:text-xl md:max-w-3xl">Luminary AI là nơi tổng hợp các công cụ AI phổ biến cùng với doanh nghiệp LIC lãnh đạo.</p>
+          <div class="relative flex flex-col sm:flex-row sm:space-x-4">
+            <a onclick="showPage(3)" class="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-indigo-600 rounded-md sm:mb-0 hover:bg-indigo-700 sm:w-auto">
+              Get Started 
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <a href="#_" class="flex items-center px-6 py-3 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 hover:text-gray-600">
+              Learn More
+            </a>
+          </div>
+        </div>
+      </div>
+      </section>
+    </div>
+    <div id="page2" class="h-screen  hidden">
+      <!-- component -->
+<div class="lg:px-24 lg:py-24 md:py-20 md:px-44 px-4 py-24 items-center flex justify-center flex-col-reverse lg:flex-row md:gap-28 gap-16">
+            <div class="xl:pt-24 w-full xl:w-1/2 relative pb-12 lg:pb-0">
+                <div class="relative">
+                    <div class="absolute">
+                        <div class="">
+                            <h1 class="my-2 text-gray-800 font-bold text-2xl">
+                                Cổng này đã ngắt kết nối 
+                            </h1>
+                            <p class="my-2 text-gray-800">Trang này đã bị ngắt kết nối với máy chủ, hãy thử lại!</p>
+                            <button onclick="showPage(1)" class="sm:w-full lg:w-auto my-2 border rounded-2xl md py-4 px-8 text-center bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-opacity-50">Quay lại trang chính</button>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://i.ibb.co/G9DC8S0/404-2.png" />
+                    </div>
+                </div>
+            </div>
+            <div>
+                <img src="https://i.ibb.co/ck1SGFJ/Group.png" />
+            </div>
+        </div>
+    </div>
+    <div id="page3" class="h-screen pt-20 hidden">
+        <h2 class="text-center text-2xl font-bold mb-4">Discover AnyAI - Page 3</h2>
+        <div id="tool-section" class="flex flex-wrap  items-center
+          ">
+            <!-- Tool Card 1 -->
+            <div class="tool-card wih bg-white shadow-lg rounded-lg overflow-hidden m-4  sm:w-2/3 md:w-1/3 lg:w-1/4 transition-all duration-300 ease-in-out transform hover:scale-105">
+                <img src="https://via.placeholder.com/150" class="w-full h-32 object-cover animate-pulse" >
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold">Tool 1</h3>
+                    <p class="text-gray-600">Description of tool 1.</p>
+                    <p class="text-gray-400 text-sm">Date: 2023-10-01</p>
+                    <button data-dialog-target="dialog-xlll" class="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-md">Use</button>
+                </div>
+            </div>
+            <!-- Tool Card 2 -->
+            <div class="tool-card wih bg-white shadow-lg rounded-lg overflow-hidden m-4  sm:w-2/3 md:w-1/3 lg:w-1/4 transition-all duration-300 ease-in-out transform hover:scale-105">
+                <img src="https://via.placeholder.com/150" class="w-full h-32 object-cover animate-pulse">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold">Tool 2</h3>
+                    <p class="text-gray-600">Description of tool 2.</p>
+                    <p class="text-gray-400 text-sm">Date: 2023-10-01</p>
+                    <button onclick="activateTool(this)" class="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-md">Use</button>
+                </div>
+            </div>
+            <!-- Tool Card 3 -->
+            <div class="tool-card wih bg-white shadow-lg rounded-lg overflow-hidden m-4  sm:w-2/3 md:w-1/3 lg:w-1/4 transition-all duration-300 ease-in-out transform hover:scale-105">
+                <img src="https://via.placeholder.com/150" class="w-full h-32 object-cover animate-pulse">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold">Tool 3</h3>
+                    <p class="text-gray-600">Description of tool 3.</p>
+                    <p class="text-gray-400 text-sm">Date: 2023-10-01</p>
+                    <button onclick="activateTool(this)" class="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-md">Use</button>
+                </div>
+            </div>
+            <!-- Tool Card 4 -->
+            <div class="tool-card wih bg-white shadow-lg rounded-lg overflow-hidden m-4  sm:w-2/3 md:w-1/3 lg:w-1/4 transition-all duration-300 ease-in-out transform hover:scale-105">
+                <img src="https://via.placeholder.com/150" class="w-full h-32 object-cover animate-pulse">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold">Tool 4</h3>
+                    <p class="text-gray-600">Description of tool 4.</p>
+                    <p class="text-gray-400 text-sm">Date: 2023-10-01</p>
+                    <button onclick="activateTool(this)" class="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-md">Use</button>
+                </div>
+            </div>
+            <!-- Tool Card 5 -->
+            <div class="tool-card wih bg-white shadow-lg rounded-lg overflow-hidden m-4 pdg sm:w-2/3 md:w-1/3 lg:w-1/4 transition-all duration-300 ease-in-out transform hover:scale-105">
+                <img id="user-avatar " src="" class="w-full h-32 object-cover animate-pulse">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold">Tool 5</h3>
+                    <p class="text-gray-600">Description of tool 5.</p>
+                    <p class="text-gray-400 text-sm">Date: 2023-10-01</p>
+                    <button onclick="activateTool(this)" class="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-md">Use</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="page4" class="h-screen  hidden">
+      <!-- component -->
+<div class="lg:px-24 lg:py-24 md:py-20 md:px-44 px-4 py-24 items-center flex justify-center flex-col-reverse lg:flex-row md:gap-28 gap-16">
+            <div class="xl:pt-24 w-full xl:w-1/2 relative pb-12 lg:pb-0">
+                <div class="relative">
+                    <div class="absolute">
+                        <div class="">
+                            <h1 class="my-2 text-gray-800 font-bold text-2xl">
+                                Cổng này đã ngắt kết nối 
+                            </h1>
+                            <p class="my-2 text-gray-800">Trang này đã bị ngắt kết nối với máy chủ, hãy thử lại!</p>
+                            <button onclick="showPage(1)" class="sm:w-full lg:w-auto my-2 border rounded-2xl md py-4 px-8 text-center bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-opacity-50">Quay lại trang chính</button>
+                        </div>
+                    </div>
+                    <div>
+                        <img class="h-[15px]" src="https://i.ibb.co/G9DC8S0/404-2.png" />
+                    </div>
+                </div>
+            </div>
+            <div>
+                <img src="https://i.ibb.co/ck1SGFJ/Group.png" />
+            </div>
+        </div>
+    </div>
+
+    </div>
+            <div id="page5" class="h-screen pt-20 hidden">
+     <p class="text-center text-2xl"><strong>Tôi</strong> <span class="font-black animate-pulse  " id="info-fullname"></span></p>
+    <div id="user-info" class="relative bg-gray-200 p-4 mt-8 rounded-2xl ml-5 mr-5 hidden" style="height: 250px; padding-top: 90px; margin-top: 90px;">
+     
+        <div class="relative" style="position: absolute;top: -50px;
+  left: 20px;">
+            <img id="user-avatar" src="" alt="Avatar"  style="border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 5px solid #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+          </div>
+            <p><strong>Username:</strong> <span id="info-username"></span></p>
+            
+            <p><strong>Gender:</strong> <span id="info-gender"></span></p>
+            <p><strong>Country:</strong> <span id="info-country"></span></p>
+            <p><strong>Tài khoản liên kết</strong> <a href="" id="info-social">Xem</a></p>
+        </div>
+              <div class="trustpilot-widget mt-20" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="667a46c1df3459dd465311cc" data-style-height="52px" data-style-width="100%">
+  <a href="https://www.trustpilot.com/review/anyai.netlify.app" target="_blank" rel="noopener">Trustpilot</a>
+</div>
+
+    </div>
+    
+       
+<!-- End TrustBox widget -->
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    
+
+<div class="fixed z-40 flex w-full justify-center items-center sizeauto mx-auto backdrop-blur bg-[#000000e5] border border-gray-200  dark:bg-gray-700 dark:border-gray-600" >
+    <div class="grid h-full w-full grid-cols-5 mx-auto">
+        <button onclick="showPage(1)" type="button" class="inline-flex flex-col items-center justify-center px-5 rounded-s-full hover:bg-gray-50 dark:hover:bg-gray-800 group">
+            <svg class="w-6 h-6 mb-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 48 48" id="Home-3--Streamline-Core" height="48" width="48"><desc>Home 3 Streamline Icon: https://streamlinehq.com</desc><g id="home-3--home-house-roof-shelter"><path id="Union" fill="#454545" d="M25.15837714285714 2.164878857142857c-0.6554057142857143 -0.600792 -1.6613485714285714 -0.600792 -2.3167542857142855 0L3.381987428571428 20.00286857142857C2.319325714285714 20.976994285714284 1.7142857142857142 22.352365714285714 1.7142857142857142 23.793942857142856V41.14285714285714c0 2.8402285714285713 2.3025257142857143 5.142857142857142 5.142857142857142 5.142857142857142h34.285714285714285c2.8402285714285713 0 5.142857142857142 -2.302628571428571 5.142857142857142 -5.142857142857142V23.793942857142856c0 -1.4415771428571427 -0.6051428571428571 -2.816948571428571 -1.6676571428571427 -3.791074285714286L25.15837714285714 2.164878857142857Z" stroke-width="1"></path><path id="Intersect" fill="#bdbdbd" d="M27.428571428571427 46.285714285714285V34.285714285714285c0 -1.8935314285714284 -1.53504 -3.4285714285714284 -3.4285714285714284 -3.4285714285714284s-3.4285714285714284 1.53504 -3.4285714285714284 3.4285714285714284v12h6.857142857142857Z" stroke-width="1"></path></g></svg>
+            <span class="sr-only">Home</span>
+        </button>
+        <div id="tooltip-home" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+            Home
+            <div class="tooltip-arrow" data-popper-arrow></div>
+        </div>
+        <button onclick="showPage(2)" type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
+            <svg class="w-5 h-5 mb-1  dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path fill="#454545" d="M11.074 4 8.442.408A.95.95 0 0 0 7.014.254L2.926 4h8.148ZM9 13v-1a4 4 0 0 1 4-4h6V6a1 1 0 0 0-1-1H1a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h17a1 1 0 0 0 1-1v-2h-6a4 4 0 0 1-4-4Z"/>
+                <path fill="#454545"d="M19 10h-6a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1Zm-4.5 3.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM12.62 4h2.78L12.539.41a1.086 1.086 0 1 0-1.7 1.352L12.62 4Z"/>
+            </svg>
+            <span class="sr-only">Wallet</span>
+        </button>
+        <div id="tooltip-wallet" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+            Wallet
+            <div class="tooltip-arrow" data-popper-arrow></div>
+        </div>
+        <div  class="flex items-center justify-center">
+            <button onclick="showPage(3)" 
+              data-ripple-light="true"
+              class="align-middle select-none  font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-4 px-4 rounded-full bg-gray-900 text-white shadow-md shadow-gray-900/10  focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none cursor-not-allowed "
+    type="button">
+                <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                </svg>
+                <span class="sr-only">New item</span>
+            </button>
+        </div>
+        <div id="tooltip-new" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+            Create new item
+            <div class="tooltip-arrow" data-popper-arrow></div>
+        </div>
+        <button onclick="showPage(4)" type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
+            <svg class="w-6 h-6 mb-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14" id="Dashboard-3--Streamline-Core" height="14" width="14"><desc>Dashboard 3 Streamline Icon: https://streamlinehq.com</desc><g id="dashboard-3--app-application-dashboard-home-layout-vertical"><path id="Union" fill="#454545" fill-rule="evenodd" d="M1.5 0.5c-0.552285 0 -1 0.447715 -1 1v6c0 0.55229 0.447715 1 1 1h4c0.55229 0 1 -0.44771 1 -1v-6c0 -0.552285 -0.44771 -1 -1 -1h-4Zm6 1c0 -0.552285 0.44772 -1 1 -1h4c0.5523 0 1 0.447715 1 1v2.01c0 0.55228 -0.4477 1 -1 1h-4c-0.55228 0 -1 -0.44772 -1 -1V1.5Zm0 5c0 -0.55228 0.44772 -1 1 -1h4c0.5523 0 1 0.44772 1 1v6c0 0.5523 -0.4477 1 -1 1h-4c-0.55228 0 -1 -0.4477 -1 -1v-6Zm-7 3.99c0 -0.55229 0.447715 -1.00001 1 -1.00001h4c0.55229 0 1 0.44772 1 1.00001v2.01c0 0.5523 -0.44771 1 -1 1h-4c-0.552285 0 -1 -0.4477 -1 -1v-2.01Z" clip-rule="evenodd" stroke-width="1"></path></g></svg>
+            <span class="sr-only">Settings</span>
+        </button>
+        <div id="tooltip-settings" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+            Settings
+            <div class="tooltip-arrow" data-popper-arrow></div>
+        </div>
+        <button onclick="showPage(5)" type="button" class="inline-flex flex-col items-center justify-center px-5 rounded-e-full hover:bg-gray-50 dark:hover:bg-gray-800 group">
+            <svg class="w-6 h-6 mb-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14" id="User-Nft-Profile-Picture-1--Streamline-Core" height="14" width="14"><desc>User Nft Profile Picture 1 Streamline Icon: https://streamlinehq.com</desc><g id="user-nft-profile-picture-1"><path id="Union" fill="#454545" fill-rule="evenodd" d="M13.6299 7.76309c0.2782 -0.47071 0.2782 -1.05547 0 -1.52618l-2.6591 -4.5C10.701 1.2802 10.2099 1 9.67945 1H4.32071c-0.53048 0 -1.02151 0.2802 -1.29139 0.73691l-2.65909 4.5c-0.2781463 0.47071 -0.2781454 1.05547 0.000001 1.52618L3.02932 12.2631c0.26988 0.4567 0.76091 0.7369 1.29139 0.7369h5.35874c0.53045 0 1.02155 -0.2802 1.29135 -0.7369l2.6591 -4.50001Z" clip-rule="evenodd" stroke-width="1"></path><path id="Union_2" fill="#bdbdbd" fill-rule="evenodd" d="M9 5.5c0 1.10457 -0.89543 2 -2 2s-2 -0.89543 -2 -2 0.89543 -2 2 -2 2 0.89543 2 2Zm-2 3c2.03089 0 3.7476 1.34536 4.3074 3.1935l-0.3366 0.5696c-0.2699 0.4567 -0.7609 0.7369 -1.2914 0.7369H4.32066c-0.53048 0 -1.02151 -0.2802 -1.29139 -0.7369l-0.33664 -0.5697C3.25249 9.84532 4.96914 8.5 7 8.5Z" clip-rule="evenodd" stroke-width="1"></path></g></svg>
+            <span class="sr-only">Profile</span>
+        </button>
+        <div id="tooltip-profile" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+            Profile
+            <div class="tooltip-arrow" data-popper-arrow></div>
+        </div>
+    </div>
+</div>
+     </div>
+</section>
+<script src="im-4.js"></script>
+    
+
+    <script>
+      function openFullscreenModal(imageUrl) {
+        document.getElementById('fullscreen-modal').classList.remove('hidden');
+        document.getElementById('fullscreen-img').src = imageUrl;
+        document.getElementById('download-btn').setAttribute('href', imageUrl);
+        document.getElementById('download-btn').setAttribute('download', 'generated_image.png');
+      }
+
+      function closeFullscreenModal() {
+        document.getElementById('fullscreen-modal').classList.add('hidden');
+        document.getElementById('fullscreen-img').src = '';
+      }
+    </script>
+
+
+  <!--script for chat-->
+
+  <script src="chatdt.js">
+  </script>
+    <style>
+        .pulse-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            
+            z-index: 9999;
+            backdrop-filter: blur(7px);
+            animation: pulseEffect 0.7s ease-in-out;
+        }
+
+        @keyframes pulseEffect {
+            0% {
+                transform: scale(1);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+    </style>
+  <script src="node_modules/@material-tailwind/html@latest/scripts/ripple.js"></script>
+ 
+<!-- from cdn -->
+<script src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"></script>
+  <script src="node_modules/@material-tailwind/html@latest/scripts/dialog.js"></script>
+ <script
+  type="module"
+  src="node_modules/@material-tailwind/html@latest/scripts/popover.js"
+></script>
+ 
+<!-- from node_modules -->
+<script
+  type="module"
+  src="node_modules/@material-tailwind/html@latest/scripts/popover.js"
+></script>
+ 
+<!-- from cdn -->
+<script
+  type="module"
+  src="https://unpkg.com/@material-tailwind/html@latest/scripts/popover.js"
+></script>
+<!-- from cdn -->
+<script src="https://unpkg.com/@material-tailwind/html@latest/scripts/dialog.js"></script>
+
+  <script>
+    const cursor = document.querySelector('.cursor');
+
+document.addEventListener('mousemove', e => {
+    cursor.setAttribute("style", "top: " + (e.pageY - 10) + "px; left: " + (e.pageX - 10) + "px;")
+});
+
+document.addEventListener('click', e => {
+    cursor.classList.add("expand");
+    setTimeout(() => {
+        cursor.classList.remove("expand");
+    }, 500);
+});
+  </script>
+    <script src="ftlogin.js"></script>
+</body>
+</html>
